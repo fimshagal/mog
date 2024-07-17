@@ -1,5 +1,4 @@
 /node_modules
-/sources
 /.parcel-cache
 /dist
 .env
