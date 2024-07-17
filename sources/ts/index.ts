@@ -1,6 +1,5 @@
 import { Mog } from "./mog";
 import { LogFn } from "./mog/lib";
-import "./../css/index.css";
 
 (async (): Promise<void> => {
     const mog: Mog = Mog.getSingle();
