@@ -1,5 +1,5 @@
 import { HTMLBuildConfig, IHtmlBuilder } from "./lib";
-import { genSingletonLock, Nullable } from "../utils";
+import { genSingletonLock, Nullable } from "./mog.utils";
 
 const HtmlBuilderSingletonLock = Symbol(genSingletonLock('HtmlBuilder'));
 
@@ -71,7 +71,7 @@ export class HtmlBuilder implements IHtmlBuilder {
             if (attributes) {
                 for (const item of attributes) {
                     Object
-                        .entries(item)
+                        .entries(item as ArrayLike<any>)
                         .forEach(([key, value]) => el.setAttribute(key, value));
                 }
             }

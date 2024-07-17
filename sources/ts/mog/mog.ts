@@ -1,7 +1,7 @@
 import { Entry, IMog, LogFn, MogInitConfig } from "./lib";
-import { Dictionary, genSingletonLock, Nullable } from "../utils";
+import { Dictionary, genSingletonLock, Nullable, typeOf, is } from "./mog.utils";
 import { HtmlBuilder } from "./mog.html.builder";
-import { typeOf, is } from "../is";
+import { MogStyles } from "./mog.styles";
 
 const MogSingletonLock = Symbol(genSingletonLock('MogSingletonLock'));
 
@@ -117,6 +117,13 @@ export class Mog implements IMog {
                 `mog-${this.isMobileEnv ? "mobile" : "desktop"}`
             ],
             id: 'mog',
+        });
+
+        this.elements.styles = this.htmlBuilder.build({
+            tag: 'style',
+            parent: this.rootElement,
+            classList: ['mog-styles'],
+            innerText: MogStyles,
         });
 
         this.elements.groupHeader = this.htmlBuilder.build({
