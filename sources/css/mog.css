@@ -5,6 +5,7 @@
     width: 100%;
     font-size: 1.5vmax;
     background: rgb(231, 231, 231);
+    z-index: 10000;
 }
 
 .mog-logo {
