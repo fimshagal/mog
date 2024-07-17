@@ -1,0 +1,9 @@
+/node_modules
+/sources
+/.parcel-cache
+/dist
+.env
+*.log
+.DS_Store
+.idea/
+.vscode/
