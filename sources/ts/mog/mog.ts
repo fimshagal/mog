@@ -87,7 +87,7 @@ export class Mog implements IMog {
     private handleLog(message: any): void {
         const messageType: string = typeOf(message);
 
-        let serializedMessage: string = is.scalar(message)
+        let serializedMessage: string = is.scalar(message) || is.fn(message)
             ? message.toString()
             : JSON.stringify(message);
 
@@ -145,7 +145,7 @@ export class Mog implements IMog {
                 'mog-button-toggle-view',
             ],
             id: 'buttonToggleView',
-            innerText: "⇕",
+            innerText: "⛶",
         });
 
         this.elements.entries = this.htmlBuilder.build({
@@ -162,6 +162,12 @@ export class Mog implements IMog {
         const buttonToggleView: HTMLButtonElement = this.elements.buttonToggleView as HTMLButtonElement;
 
         buttonToggleView.addEventListener("click", this.handleOnClickButtonToggleView.bind(this));
+    }
+
+    private stopListenHTML(): void {
+        const buttonToggleView: HTMLButtonElement = this.elements.buttonToggleView as HTMLButtonElement;
+
+        buttonToggleView.removeEventListener("click", this.handleOnClickButtonToggleView.bind(this));
     }
 
     private handleOnClickButtonToggleView(event: Event): void {

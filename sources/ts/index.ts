@@ -9,24 +9,16 @@ import { LogFn } from "./mog/lib";
     const log: LogFn = mog.defineLog();
 
     log(null);
-
     log(undefined);
-
     log(NaN);
-
     log(1_000);
-
     log("Let it be");
-
     log(Symbol("^_^"));
-
     log([1, 2, 3]);
-
     log({
         Alice: 20,
         Bob: 17,
     });
-
     log(() => {
         return true;
     });
