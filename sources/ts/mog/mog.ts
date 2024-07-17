@@ -12,6 +12,8 @@ export class Mog implements IMog {
     private _isMobileEnv: boolean = false;
     private _isCollapsed: boolean = false;
 
+    private _toggleViewClassName: string = "mog-collapsed-view";
+
     private _parentElement: HTMLElement = document.body;
     private _rootElement: Nullable<HTMLElement> = null;
     private _elements: Dictionary<HTMLElement> = {};
@@ -170,10 +172,13 @@ export class Mog implements IMog {
     private toggleView(): void {
         this._isCollapsed = !this._isCollapsed;
 
+        const className: string = this._toggleViewClassName;
+        const rootElement: HTMLElement = this.rootElement;
+
         if (this._isCollapsed) {
-            this.rootElement.classList.add("mog-collapsed-view");
+            rootElement.classList.add(className);
         } else {
-            this.rootElement.classList.remove("mog-collapsed-view");
+            rootElement.classList.remove(className);
         }
     }
 
